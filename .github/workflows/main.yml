@@ -18,8 +18,3 @@ jobs:
           CI: true
         run: |
           npm ci
-      - name: deploy
-        run: |
-          npx ncc build index.ts
-          zip -j deploy.zip ./dist/*
-          aws lambda update-function-code --function-name=myfunctionCI --zip-file=fileb://deploy.zip
